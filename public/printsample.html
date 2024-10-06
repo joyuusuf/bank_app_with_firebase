@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Recorder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .transaction-form {
+            margin-bottom: 20px;
+        }
+        .transaction-form input, .transaction-form button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        .transaction-list {
+            margin-bottom: 20px;
+        }
+
+        button{
+            color: blue;
+            background-color: tomato;
+            border: none;
+            border-radius: 5px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Transaction Recorder</h1>
+        <div class="transaction-form">
+            <input type="date" id="date" placeholder="Date">
+            <input type="text" id="description" placeholder="Description">
+            <input type="number" id="amount" placeholder="Amount">
+            <button onclick="addTransaction()">Add Transaction</button>
+        </div>
+        <div class="transaction-list" id="transaction-list">
+            <h2>Transaction History</h2>
+            <ul id="transactions"></ul>
+        </div>
+        <button onclick="printTransactions()">Print Transactions</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<script>
+
+// Define the transactions array
+let transactions = [];
+
+// Function to add a transaction
+function addTransaction() {
+    // Get the values from the input fields
+    let date = document.getElementById('date');
+    let description = document.getElementById('description');
+    let amount = document.getElementById('amount');
+
+    // Check if all fields are filled
+    if (date && description && amount) {
+        // Create a transaction object
+        let transaction = {
+            date: date.value,
+            description: description.value,
+            amount: parseFloat(amount).toFixed(2)
+        };
+
+        // Add the transaction to the transactions array
+        transactions.push(transaction);
+
+        // Update the transaction list on the page
+        updateTransactionList();
+
+        // Clear the input fields
+        document.getElementById('date').value = '';
+        document.getElementById('description').value = '';
+        document.getElementById('amount').value = '';
+    } else {
+        alert('Please fill in all fields.');
+    }
+}
+
+// Function to update the transaction list displayed on the page
+function updateTransactionList() {
+    const transactionList = document.getElementById('transactions');
+    transactionList.innerHTML = '';
+
+    transactions.forEach((transaction, index) => {
+        const transactionItem = document.createElement('li');
+        transactionItem.textContent = `${transaction.date}: ${transaction.description} - $${transaction.amount}`;
+        transactionList.appendChild(transactionItem);
+    });
+}
+
+// Function to print the transactions
+function printTransactions() {
+    const printWindow = window.open('', '', 'height=400,width=600');
+    printWindow.document.write('<html><head><title>Transaction History</title></head><body>');
+    printWindow.document.write('<h1>Transaction History</h1>');
+    printWindow.document.write('<ul>');
+
+    transactions.forEach(transaction => {
+        printWindow.document.write(`<li>${transaction.date}: ${transaction.description} - $${transaction.amount}</li>`);
+    });
+
+    printWindow.document.write('</ul>');
+    printWindow.document.write('</body></html>');
+    printWindow.document.close();
+    printWindow.print();
+}
+</script>

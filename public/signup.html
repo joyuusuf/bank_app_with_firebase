@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sign.css">
+    <link rel="icon" href="Mide_Bank_PLC_transparent-removebg-preview.png">
+    
+    <title>Mide Bank Plc</title>
+</head>
+
+<body>
+  <div id="allpage">
+    <div>
+      <!-- <img src="cover page.jpg" id="coverpage"> -->
+    </div>
+   
+    <div class="container">
+      <span style="display: flex; justify-content: center;"> 
+        <img src="Mide_Bank_PLC_transparent-removebg-preview.png" id="logo">
+        <h1>Create Your Account</h1>
+      </span>
+      <label>Title:</label>
+      <select id="title">
+        <option></option>
+        <option value="Mrs">Mr</option>
+        <option value="Mr">Mrs</option>
+        <option value="Miss">Miss</option>
+      </select>
+
+      <label>First Name:</label>
+      <input type="text" id="firstName" placeholder="Input your first name here">
+
+      <label>Other Name:</label>
+      <input type="text" id="otherName" placeholder="Input your other name here">
+
+      <label>Last Name:</label>
+      <input type="text" id="lastName" placeholder="Input your last name here">
+
+      <label>Gender:</label>
+      <select id="gender">
+        <option>Select your gender here</option>
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+
+      <label>Local Government Area:</label>
+      <input type="text" id="LGEA" placeholder="Input your local government area here">
+
+      <label>State:</label>
+      <input type="text" id="state" placeholder="Input your state here">
+
+      <label>Country Of Residence:</label>
+      <input type="text" id="country" placeholder="Input your country of residence here">
+
+      <label>Address:</label>
+      <input type="text" id="address" placeholder="Input your address here">
+      
+      <label>Date Of Birth:</label>
+      <input type="date" name="" id="date">
+
+      <label>Email:</label>
+      <input type="email" id="email" placeholder="Provide your email here">
+
+      <label>Password:</label>
+      <span>
+        <input type="password" id="password" placeholder="Input your password">
+        <span id="eye" style="cursor: pointer;">Show</span>
+      </span>
+
+      <label>Confirm Password:</label>
+      <input type="password" id="confirmPassword" placeholder="Confirm your password">
+
+      <label>Enter Pin:</label>
+      <input type="password" id="pin" placeholder="Enter your pin">
+      <br><br>
+
+      <button id="signupbtn" onclick="finished()">Sign Up</button> <br>
+
+      <span>
+        <input type="checkbox"  id="check"> 
+        <span id="bottomline">Yes, I have read and agreed to the terms and conditions of MB PLC.</span>
+      </span>
+    </div>
+  </div>
+
+ 
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-storage-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDoI5jcWsQrDRhiNc2cR3unhRtaZBIIISQ",
+      authDomain: "bankapp-b784e.firebaseapp.com",
+      databaseURL: "https://bankapp-b784e-default-rtdb.firebaseio.com",
+      projectId: "bankapp-b784e",
+      storageBucket: "bankapp-b784e.appspot.com",
+      messagingSenderId: "538992171201",
+      appId: "1:538992171201:web:beb3376817b90410311c40"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const auth = firebase.auth();
+  </script>
+  <script>
+   let title = document.getElementById("title");
+let firstName = document.getElementById('firstName');
+let otherName = document.getElementById('otherName');
+let lastName = document.getElementById('lastName');
+let email = document.getElementById('email');
+let gender = document.getElementById("gender");
+let lgea = document.getElementById("LGEA");
+let state = document.getElementById("state");
+let country = document.getElementById("country");
+let address = document.getElementById("address");
+let date = document.getElementById('date');
+let password = document.getElementById('password');
+let confirmPassword = document.getElementById('confirmPassword');
+let pin = document.getElementById('pin');
+let check = document.getElementById('check'); 
+let signupBtn = document.getElementById("signupbtn");
+
+function finished() {
+    if (title.value ==="" || firstName.value ==="" || otherName.value === "" ||
+        lastName.value ==="" || email.value ==="" || gender.value === "" || lgea.value === "" ||
+        state.value ==="" || country.value ==="" || address.value === "" || date.value === "" ||
+        password.value ==="" || pin.value ==="" || !check.checked) {
+        alert("Kindly fill the required fields. Thanks!");
+        return;
+    }
+
+    if (password.value !== confirmPassword.value) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    signupBtn.innerHTML = `
+        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+        <span class="visually-hidden" role="status">Loading...</span>
+    `;
+
+    auth.createUserWithEmailAndPassword(email.value, password.value)
+        .then((userCredential) => {
+            const user = userCredential.user;
+
+            const profileData = {
+                title: title.value,
+                firstName: firstName.value,
+                otherName: otherName.value,
+                lastName: lastName.value,
+                gender: gender.value,
+                lgea: lgea.value,
+                state: state.value,
+                country: country.value,
+                address: address.value,
+                dateOfBirth: date.value,
+                email: email.value,
+                balance: 5000,
+                pin: pin.value.trim()  // Store the actual pin value
+            };
+
+            db.collection("Profile").doc(email.value).set(profileData)
+                .then(() => {
+                    console.log("Document successfully written to Firestore!");
+                    alert("Registration Successful");
+                    window.location.href = 'login.html';
+                })
+                .catch((error) => {
+                    console.error("Error writing document to Firestore: ", error);
+                    alert("Error: Registration Failed. Please try again later.");
+                    signupBtn.innerHTML = "Sign Up";
+                });
+        })
+        .catch((error) => {
+            console.error(error.message);
+            alert("Error: " + error.message);
+            signupBtn.innerHTML = "Sign Up";
+        });
+}
+  </script>
+</body>
+</html>

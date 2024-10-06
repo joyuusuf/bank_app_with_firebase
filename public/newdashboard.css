@@ -1,0 +1,899 @@
+
+/* SECTION 1   SECTION 1 SECTION 1  SECTION 1 SECTION 1 SECTION 1 SECTION 1 SECTION 1 SECTION 1 SECTION 1 */
+/* Rolling effect */
+@keyframes roll {
+   0% {
+     transform: rotateY(0deg);
+   }
+   100% {
+     transform: rotateY(360deg);
+   }
+ }
+ 
+ .roll-effect {
+   animation: roll 4s ease-in-out;
+ }
+ /* Rolling Effect stops */
+
+
+#logo{
+    width: 40px;
+    height: 40px;
+}
+
+#section1{
+    display: flex;
+    justify-content: left;
+    gap: 20px;
+    margin-top: 100px;
+    position: relative;
+    left: 0;
+}
+
+#upperleft {
+   height: 280px;
+   width: 300px;
+   background-color: rgb(247, 249, 250);
+   flex-direction: column;
+   justify-content: center;
+   align-content: center;
+   margin: 15px 0 0 15px;
+   border-radius: 5px;
+}
+
+.custom-label {
+   display: inline-block;
+   position: relative;
+   cursor: pointer;
+}
+
+.preview-image {
+   display: block;
+   max-width: 100px;
+   max-height: 100px;
+   border-radius: 50%;
+   object-fit: cover;
+   margin-left: 40px;
+}
+
+.custom-label span {
+   display: block;
+}
+
+#upperright1{
+    background-color: rgb(247, 249, 250);
+    height: 300px;
+    width: 900px;
+    margin: 15px 30px 0 15px;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+}
+
+#percent{
+    border-radius: 5px; 
+    border: 1px solid rgb(219, 53, 69);
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+#icons{
+   display: flex;
+    justify-content: space-evenly;
+    margin: 90px 0px 0px 0px;
+    z-index: 1;
+    /* position: relative; */
+}
+#texticons{
+    display: flex; 
+    justify-content: space-evenly;
+    margin-left: 50px;
+    margin: 35px 0px 0px 60px;
+}
+
+#icons, #texticons:hover{
+    cursor: pointer;
+}
+ #screen:hover,#envelope:hover,#cred:hover,#land:hover,#mob:hover,#emailadd:hover,#addcard:hover,#addbank:hover{
+    color: rgb(219, 53, 69);
+ }
+
+ /* SECTION 2 SECTION 2 SECTION 2 SECTION 2 SECTION 2 SECTION 2  SECTION 2 SECTION 2  SECTION 2  */
+ #section2{
+    display: flex;
+    justify-content: left;
+    gap: 20px;
+ }
+ #wallet{
+    margin-top: 30px;
+    font-size: 70px;
+    opacity: 0.3;
+ }
+
+ #amount{
+    font-weight: bolder;
+    font-size: 25px;
+    text-align: center;
+ }
+
+ #balance{
+    height: 280px;
+    width: 300px;
+    margin: 30px 0 0 15px;
+    background-color: rgb(247, 249, 250);
+    border-radius: 5px;
+    text-align: center;
+ }
+
+ 
+
+ #balancetext{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 55px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: rgb(219, 53, 69);
+    opacity: 0.5;
+ }
+
+ #section2right{
+    background-color: rgb(247, 249, 250);
+    height: 65px;
+    width: 900px;
+    margin: 50px 30px 0 30px;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    /* bottom: 0; */
+ }
+ #activity{
+    margin-left: 25px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+ }
+
+
+ #leftsection3{
+    height: 330px;
+    width: 300px;
+    margin: 15px 0 0 15px;
+    background-color: rgb(247, 249, 250);
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    left: 0;
+ }
+
+
+ #comment{
+    margin-top: 20px;
+    font-size: 90px;
+    font-weight: lighter;
+    opacity: 0.2;
+ }
+ #help{
+    margin-top: 20px;
+ }
+
+ #section3quest, #ourexpert{
+    font-size: 14px;
+ }
+
+
+ #questbtn{
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(219, 53, 69);
+    height: 40px;
+    width: 200px;
+    /* padding: 8px; */
+ }
+
+ /* AIRTIME SECTION */   /* AIRTIME SECTION */   /* AIRTIME SECTION */   /* AIRTIME SECTION */   /* AIRTIME SECTION */   
+
+ #airtimesection{
+    display: flex;
+    margin: 130px 0px 50px 0px;
+    /* position: relative; */
+    /* height: fit-content; */
+ }
+
+ #payleft{
+    border: 1px solid rgb(219, 53, 69) ;
+    height: 80vh;
+    width: 300px;
+    margin: 0px 0px 0px 15px;
+    background-color: rgb(247, 249, 250);
+    position:relative;
+    left: 0;
+    bottom: 0;
+
+ }
+ #payh1{
+    border-bottom: 1px solid rgb(219, 53, 69);
+    background-color: rgb(247, 249, 250);
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+ }
+ #payh1:hover{
+    color: rgb(219, 53, 69);
+ }
+ #paybank, #paycard, #payvisa{
+    border-bottom: 1px solid black;
+    /* height: 50px; */
+    padding: 20px;
+    cursor: pointer;
+    text-align: center;
+
+ }
+ #paybank:hover, #paycard:hover, #payvisa:hover{
+    color: rgb(219, 53, 69);
+ }
+
+ #amountairtime{
+   font-weight: bolder;
+   font-size: 25px;
+   text-align: center;
+ }
+
+ #airtimemain{
+    position: relative;
+    right: 0;
+    bottom: 0;
+ }
+
+ #airhead{
+    margin-left: 300px;
+ }
+
+ #entertrans{
+   margin: 50px 0px 0px 300px;
+ }
+ 
+ #entertrans1{
+   margin-left: 370px;
+   color: rebeccapurple;
+ }
+ #list{
+    margin-left: 20px;
+    color: rgb(219, 53, 69);
+    font-size: 30px;
+ }
+ #airtimeform{
+    /* margin: 0px 0px 0px 60px; */
+    width: 500px;
+ }
+
+ #lbl, #pin-label{
+   margin-left: 200px;
+   
+ }
+
+ #airtimeinput{
+    /* border: none; */
+    width: 300px;
+    height: 60px;
+    margin-left: 200px;
+
+ }
+
+ #inputamountairt{
+   width: 300px;
+   height: 60px;
+   margin: 0px 0px 40px 200px;
+ }
+ #selectairtime{
+    border: none;
+    width: 300px;
+    height: 40px;
+    margin-left: 200px;
+ }
+
+
+ #pinairtime{
+   width: 300px;
+    height: 60px;
+    margin-left: 200px;
+ }
+ #airtimebtn{
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(219, 53, 69);
+    color: white;
+    margin-left: 200px;
+    width: 300px;
+    height: 50px;
+ }
+
+ #payright{
+    border: 1px solid rgb(219, 53, 69) ;
+    /* height: 100vh; */
+    width: 300px;
+    margin: 20px 0px 0px 0px;
+   background-color: rgb(247, 249, 250);
+   position:relative;
+   right: 0;
+   bottom: 0;
+ }
+
+
+ /* ACCOUNT TRANSFER STARTS ACCOUNT TRANSFER ACCOUNT TRANSFER ACCOUNT TRANSFER ACCOUNT TRANSFER ACCOUNT TRANSFER */
+ #transfermain {
+   padding: 20px;
+}
+
+#accounttrans {
+   margin: 50px 0 20px;
+   text-align: center;
+   font-size: 2rem;
+   color: rgb(219, 53, 69);
+}
+
+#alltransfer {
+   display: flex;
+   justify-content: space-around;
+   align-items: flex-start;
+}
+
+#transleft,
+#righttransfer {
+   border: 1px solid rgb(219, 53, 69);
+   width: 300px;
+   margin: 20px 10px;
+   padding: 10px;
+   background-color: rgb(247, 249, 250);
+}
+
+#transferform {
+   flex: 1;
+   padding: 20px;
+}
+
+#recipe,
+#recipac,
+#recipamlabel,
+#recipref {
+   margin-top: 20px;
+   font-weight: bold;
+}
+
+#recipeinput,
+#recipnumber,
+#recipamount,
+#reciprefmes,
+#transferpword {
+   width: calc(100% - 40px);
+   margin-bottom: 10px;
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   font-size: 1rem;
+}
+
+#loader {
+   width: 120px;
+   height: 20px;
+   border-radius: 20px;
+   background: repeating-linear-gradient(135deg, #f03355 0 10px, #ffa516 0 20px) 0/0% no-repeat,
+       repeating-linear-gradient(135deg, #ddd 0 10px, #eee 0 20px) 0/100%;
+   animation: l3 2s infinite;
+   display: none;
+}
+
+@keyframes l3 {
+   100% {
+       background-size: 100%;
+   }
+}
+
+#transferbtn {
+   width: 100%;
+   padding: 10px;
+   border: none;
+   border-radius: 5px;
+   background-color: rgb(219, 53, 69);
+   color: white;
+   font-size: 1.1rem;
+   cursor: pointer;
+}
+
+#transferbtn:hover {
+   background-color: rgb(179, 43, 69);
+}
+
+#transferpword {
+   margin-bottom: 20px;
+}
+
+ /* ACCOUNT TRANSFER  STOPS ACCOUNT TRANSFER STOPS ACCOUNT TRANSFER STOPS  ACCOUNT TRANSFER STOPS */
+
+/* SIGN OUT LOADER SIGN OUT LOADER SIGN OUT LOADER */
+.loader {
+   border: 4px solid rgba(0, 0, 0, 0.1);
+   border-radius: 50%;
+   border-top: 4px solid #3498db;
+   width: 30px;
+   height: 30px;
+   animation: spin 1s linear infinite;
+   margin: auto;
+   display: none; 
+   position: absolute; 
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 1000; 
+   background-color: rgb(155, 63, 20);
+}
+
+@keyframes spin {
+   0% { transform: rotate(0deg); }
+   100% { transform: rotate(360deg); }
+}
+
+
+/* SIGN OUT LOOADER STOPS SIGN OUT LOADER STOPS */
+
+
+
+
+/* FOOTER STARTS */  /* FOOTER STARTS */ /* FOOTER STARTS */   /* FOOTER STARTS */   /* FOOTER STARTS */    
+    
+
+ footer{
+    background-color: rgb(247, 249, 250);
+    margin-top: 30px;
+ }
+
+ #firstfoot{
+    display: flex;
+    gap: 30px;
+    margin-left: 20px;
+ }
+
+ #about, #support, #hel, 
+ #career, #affiliate, #fees{
+    text-decoration: none;
+    color: black;
+ }
+
+ #smlogos{
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+ }
+ #fb{
+    height: 20px;
+    width: 20px;
+ }
+ #tweet {
+    height: 20px;
+    width: 20px;
+ }
+ #goog{
+    height: 20px;
+    width: 30px;
+ }
+ #yout{
+    height: 30px;
+    width: 30px;
+ }
+
+
+ #secondfoot{
+    margin: 10px 0px 0px 20px;
+    display: flex;
+    justify-content: space-between;
+ }
+
+ #lastfooter{
+    margin-right: 20px;
+ }
+ #lasfoot{
+    text-decoration: none;
+    color: black;
+    gap: 10px;
+ }
+
+
+
+
+ /* Phone MEDIA QUERY Phone MEDIA QUERY Phone MEDIA QUERY Phone MEDIA QUERY Phone MEDIA QUERY MEDIA QUERY MEDIA QUERY */
+
+ @media screen and (max-width: 600px){
+
+   
+body{
+   width: 80%;
+   height: 100%;
+}
+
+#NavBar{
+   position: fixed;
+   top: 0;
+}
+ #section1{
+   display: flex;
+   justify-content: left;
+   gap: 20px;
+   margin-top: 190px;
+   width: 80vh;
+   position: relative;
+   left: 0;
+}
+#upperleft{
+   height: 80px;
+   width: 13%;
+   background-color: rgb(247, 249, 250);
+   flex-direction: column;
+   justify-content: center;
+   align-content: center;
+   margin: 15px 0 0 15px;
+   border-radius: 5px;
+}
+#preview{
+   display: none;
+   font-size: 5%;
+}
+#pic-text{
+   /* text-align: center; */
+   margin-left: 9%;
+   font-size: 50%;
+   
+}
+
+#file-upload{
+   font-size: 35%;
+   margin-left: 8%;
+}
+
+ #upperright1{
+   background-color: rgb(247, 249, 250);
+   height: 100px;
+   width: 20%;
+   margin: 15px 0px 0px 8px;
+   border-radius: 5px;
+   position: relative;
+   right: 0;
+   /* top: 0; */
+
+}
+
+#upperright2{
+   /* text-align: center; */
+   margin-top: 20px;
+}
+
+#profilecom,
+ #percent{
+   margin-top: 5%;
+   font-size: 50%;
+
+}
+
+#icons{
+   display: flex;
+    justify-content: space-evenly;
+    font-size: 20%;
+    margin: 15px 0px 0px 0px;
+    z-index: 1;
+}
+#texticons{
+    display: flex; 
+    justify-content: space-evenly;
+    margin: 10px 0px 0px 10px;
+    font-size: 20%;
+}
+
+
+#section2right{
+   background-color: rgb(247, 249, 250);
+   height: 30px;
+   margin: 30px 70px 0 10px;
+   border-radius: 5px;
+   position:relative;
+   left: 0;
+   /* top: 0; */
+} 
+#activity{ 
+   margin-left: 10px;
+   width: 440px;
+   display: flex;
+   justify-content: left;
+   align-items: center;
+   text-align: center;
+   font-size: 12px;
+   
+}
+
+#section2{
+   display: flex;
+   justify-content: left;
+   gap: 20px;
+   width: 100vh;
+   /* height: 80vh; */
+}
+#wallet{
+   margin-top: 30px;
+   font-size: 25px;
+   opacity: 0.6;
+}
+
+#amount{
+   font-weight: bolder;
+   font-size: 10px;
+   /* text-align: center; */
+}
+#avail{
+   font-size: 8px;
+   font-weight: bold;
+}
+#balance{
+   height: 150px;
+   width: 400px;
+   margin: 30px 0 0 10px;
+   background-color: rgb(247, 249, 250);
+   border-radius: 5px;
+   text-align: center;
+   
+}
+
+
+
+#balancetext{
+   margin-top: 30px;
+   font-size: 10px;
+   color: rgb(219, 53, 69);
+   opacity: 0.5;
+}
+
+#leftsection3{
+   height: 330px;
+   width: 250px;
+   margin: 15px 0 0 15px;
+   background-color: rgb(247, 249, 250);
+   border-radius: 5px;
+   text-align: center;
+   position: relative;
+   left: 0;
+}
+
+
+#comment{
+   margin-top: 20px;
+   font-size: 90px;
+   font-weight: lighter;
+   opacity: 0.2;
+}
+#help{
+   margin-top: 20px;
+}
+
+#section3quest, #ourexpert{
+   font-size: 10px;
+   font-weight: light;
+}
+
+#questbtn{
+   border: none;
+   border-radius: 5px;
+   color: white;
+   background-color: rgb(219, 53, 69);
+   height: 40px;
+   width: 200px;
+   /* padding: 8px; */
+}
+
+/* ACCOUNT TRANSFER Media Query STARTS */
+
+#main{
+   width: 50%;
+   height: 50%;
+}
+ /* #NavBar{
+   width: 40%;
+   height: 10%;
+ } */
+ #alltransfer{
+   /* display: flex; */
+   justify-content: left;
+   align-items: left;
+   
+ }
+ #accounttrans{ 
+   margin: 150px 0px 0px 300px;
+ }
+
+ #transleft{
+   display: none;
+ }
+ #transferform{
+   margin-left: 20px;
+ }
+
+ #recipe{
+   margin: 40px 0px 0px 100px;
+ }
+
+ #recipeinput{
+   margin-left: 100px;
+   width: 300px;
+   height: 50px;
+ }
+ 
+ #recipac{
+   margin-left: 100px;
+ }
+
+ #recipnumber{
+   margin-left: 100px;
+   width: 300px;
+   height: 50px;
+ }
+
+ #recipamlabel{
+   margin-left: 100px;
+ }
+
+ #recipamount{
+   margin-left: 100px;
+   width: 300px;
+   height: 50px;
+ }
+ #recipref{
+   margin-left: 100px;
+ }
+
+ #reciprefmes{
+   margin-left: 100px;
+   width: 300px;
+   height: 50px;
+ }
+ #transferbtn{
+   margin-left: 150px;
+   border: none;
+   border-radius: 5px;
+   background-color: rgb(219, 53, 69);
+   color: white;
+   width: 200px;
+   height: 50px;
+ }
+
+ #transferpword{
+   margin-left: 150px;
+ }
+
+
+ #righttransfer{
+   display: none;
+ }
+
+ /* ACCOUNT TRANSFER Media Query STOPS*/
+
+  /*Phone Media Query for AIRTIME SECTION */   
+/* 
+  #airtimesection{
+   display: flex;
+   margin: 100px 0px 50px 0px;
+   position: relative;
+   height: fit-content;
+} */
+
+#payleft{
+   display: none;
+}
+#payh1{
+   border-bottom: 1px solid rgb(219, 53, 69);
+   background-color: rgb(247, 249, 250);
+   padding: 20px;
+   text-align: center;
+   cursor: pointer;
+}
+#payh1:hover{
+   color: rgb(219, 53, 69);
+}
+#paybank, #paycard, #payvisa{
+   border-bottom: 1px solid black;
+   /* height: 50px; */
+   padding: 20px;
+   cursor: pointer;
+   text-align: center;
+
+}
+#paybank:hover, #paycard:hover, #payvisa:hover{
+   color: rgb(219, 53, 69);
+}
+
+#amountairtime{
+  font-weight: bolder;
+  font-size: 25px;
+  text-align: center;
+}
+
+#airtimemain{
+   position: relative;
+   right: 0;
+   bottom: 0;
+}
+
+#airhead{
+   margin: 50px 0px 0px 150px;
+}
+
+#entertrans{
+  margin: 50px 0px 0px 150px;
+}
+
+#entertrans1{
+  margin-left: 230px;
+  color: rebeccapurple;
+}
+#list{
+   /* margin-left: 20px; */
+   color: rgb(219, 53, 69);
+   font-size: 30px;
+}
+#airtimeform{
+   /* margin: 0px 0px 0px 60px; */
+   width: 500px;
+}
+
+#lbl, #pin-label{
+  margin-left: 100px;
+  
+}
+
+#airtimeinput{
+   /* border: none; */
+   width: 300px;
+   height: 60px;
+   margin-left: 100px;
+
+}
+
+#inputamountairt{
+  width: 300px;
+  height: 60px;
+  margin: 0px 0px 40px 100px;
+}
+#selectairtime{
+   border: none;
+   width: 300px;
+   height: 40px;
+   margin-left: 100px;
+}
+
+
+#pinairtime{
+  width: 300px;
+   height: 60px;
+   margin-left: 100px;
+}
+#airtimebtn{
+   border: none;
+   border-radius: 5px;
+   background-color: rgb(219, 53, 69);
+   color: white;
+   margin-left: 130px;
+   width: 250px;
+   height: 50px;
+}
+
+#payright{
+   border: 1px solid rgb(219, 53, 69) ;
+   /* height: 100vh; */
+   width: 300px;
+   margin: 20px 0px 0px 0px;
+  background-color: rgb(247, 249, 250);
+  position:relative;
+  right: 0;
+  bottom: 0;
+}
+
+   
+ }

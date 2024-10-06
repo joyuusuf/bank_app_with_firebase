@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="transfer.css">
+    <title>Transfer</title>
+</head>
+<body>
+
+    <main>
+        <div id="leftsidebar">
+            <img src="Mide_Bank_PLC_transparent-removebg-preview.png" height="120px" width="120px">
+            <button onclick="airtime()" id="airtime">Airtime</button> <br><br>
+            <button onclick="deposit()" id="deposit">Deposit</button> <br> <br>
+            <button onclick="receipt()" id="receipt">Receipt</button> <br><br>
+        </div>
+        <!-- <img src="Untitled design.jpg" style="height: 500px; width: 400px; border-radius: 50px;"> -->
+        <div id="upperCont">
+            <h1>Transfer</h1>
+            <h4> Available Balance: <code id="balance">12000</code></h4>
+
+            <label for="">Pay to:</label><br>
+            <input id="accountNum" type="number" placeholder=" Enter account number here"> <br> <br>
+
+            <label for="">Enter Amount:</label> <br>
+            <input id="amount" type="text" placeholder=" Enter amount here"> <br><br>
+
+            <label for="">Enter Reason:</label> <br>
+            <input id="reason" type="text" placeholder=" Enter reason for the transaction"> <br><br>
+
+            <button onclick="send()" id="send">Send </button>
+        </div>
+        
+    </main>
+</body>
+</html>
+
+<script>
+    let accountNum=document.getElementById("accountNum")
+    let amount = document.getElementById("amount")
+    let reason = document.getElementById("reason")
+
+    function send() {
+        if (accountNum.value=="" || amount.value==""|| reason.value=="") {
+            alert("Fill in the required field")
+        }
+        else{
+            alert("Transaction processing")
+        }
+    }
+
+
+</script>

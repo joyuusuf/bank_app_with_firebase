@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "bankapp-b784e",
+    "mybankapp": "bankapp-b784e"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}

@@ -1,0 +1,170 @@
+body{
+    background-color: darkslateblue;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#leftsidebar{
+    background-color: rgb(42, 30, 53);
+    height: 600px;
+    width: 200px;
+    text-align: center;
+}
+#airtime, #deposit, #receipt{
+    background-color: white;
+    color: blueviolet;
+    height: 50px;
+    width: 100px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: small;
+}
+
+#airtime:hover, #deposit:hover, #receipt:hover{
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+
+#upperCont{
+    width: 400px;
+    height: 500px;
+    background-color: skyblue;
+    box-shadow:  15px 15px 15px rgba(237, 236, 240, 0.521);
+    margin: auto;
+    text-align: center;
+}
+
+h1{
+    color: darkblue;
+    font-family: 'Courier New', Courier, monospace;
+    animation: fadeInOut 5s infinite;
+}
+
+@keyframes fadeInOut{
+    0%, 100%{
+        opacity: 0;
+        color: rgb(70, 90, 90);
+    }
+    50%{
+        opacity: 1;
+        color:  rgb(126, 180, 231);
+    }
+}
+
+
+h4{
+    margin-top: 30px;
+    cursor: pointer;
+    color: darkblue;
+    font-size: 15px;
+}
+input{
+    width: 300px;
+    height: 50px;
+    border: none;
+}
+label{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    color: blue;
+}
+
+#send{
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+    width: 90px;
+    /* padding: 30px; */
+    color: black;
+    background-color: white;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#send:hover{
+    cursor: pointer;
+    color: white;
+    background-color: blue;
+}
+
+@media screen and (max-width: 600px) {
+    body{
+        background-color: darkslateblue;
+    }
+    
+    main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #leftsidebar{
+        background-color: rgb(42, 30, 53);
+        height: 450px;
+        width: 100px;
+        text-align: center;
+        margin-right: 10px;
+    }
+    #airtime, #deposit, #receipt{
+        background-color: blueviolet;
+        color: white;
+        height: 30px;
+        width: 78px;
+        text-align: center;
+        border: none;
+        border-radius: 10px;
+        margin: 20px 0px 0px 5px;
+        font-family: monospace;
+        font-weight: large;
+    }
+
+    #airtime:hover, #deposit:hover, #receipt:hover{
+        background-color: white;
+        color: blue;
+        cursor: pointer;
+    }
+
+    #upperCont{
+        width: 290px;
+        height: 450px;
+        background-color: skyblue;
+        box-shadow:  15px 15px 15px rgba(237, 236, 240, 0.521);
+        margin: auto;
+        text-align: center;
+    }
+
+    h4{
+        margin-top: 20px;
+        cursor: pointer;
+        color: darkblue;
+        font-size: 20px;
+    }
+    input{
+        width: 270px;
+        height: 45px;
+        border: none;
+    }
+    label{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: bold;
+        color: blue;
+    }
+
+    
+#send{
+    border: none;
+    border-radius: 10px;
+    height: 45px;
+    width: 90px;
+    /* padding: 30px; */
+    color: rgb(234, 241, 247);
+    background-color: rgb(7, 17, 163);
+    font-weight: bold;
+    font-family: cursive;
+}
+}

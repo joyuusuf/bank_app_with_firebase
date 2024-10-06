@@ -1,0 +1,103 @@
+body{
+    background-color: rgb(245, 245, 255);
+    display: flex;
+    justify-content: center;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+}
+
+#container{
+max-width: 400px;
+margin: 90px 50px 50px 50px;
+background-color: rgb(47, 28, 155);
+padding: 50px;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+img{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    right: 0;
+    margin-left: 250px;
+}
+
+h1{
+text-align: center;
+color: #e2e7e9;
+margin-bottom: 20px;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+label{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #fff;
+}
+input{
+
+width: 100%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 3px;
+margin-bottom: 15px;
+}
+
+button{
+background-color: #3498db;
+color: #fff;
+padding: 10px 15px;
+border: none;
+border-radius: 3px;
+cursor: pointer;
+font-weight: bold;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+button:hover{
+background-color: rgb(228, 245, 228);
+color: rgb(8, 11, 187);
+}
+@media only screen and (max-width:600px){
+    body{
+        background-color: rgb(62, 30, 240);
+        display: flex;
+        justify-content: center;
+        
+    } 
+    #container{
+    max-width: 300px;
+    margin: 90px 50px 50px 50px;
+    background-color: rgb(245, 245, 248);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    img{
+        width: 90px;
+        height: 90px;
+        position: relative;
+        right: 0;
+        margin-left: 200px;
+        /* display: none; */
+    }
+
+    h1{
+        /* text-align: center; */
+        color: #0c20d3;
+        margin-bottom: 20px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 18px;
+        font-weight: 500px;
+        }
+        
+        label{
+            font-weight: bold;
+            font-family: sans-serif;
+            color: #4d127c;
+        }
+}

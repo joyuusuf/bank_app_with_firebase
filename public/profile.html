@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <nav class="navbar">
+            <a href="index.html" class="navbar-brand">Logo</a>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a href="history.html" class="nav-link">Transaction History</a>
+                </li>
+                <li class="nav-item">
+                    <a onclick="logout()" href="#" class="btn btn-danger">Logout</a>
+                </li>
+            </ul>
+        </nav>
+
+        <h1>Update your profile</h1>
+        <img id="avatar" src="" alt="">
+        <h1>Username: <span id="showUsername"></span></h1>
+        <h1>Email: <span id="showEmail"></span></h1>
+        <form action="">
+            <input id="displayName" type="text">
+            <button onclick="updateUsername(event)">Update Username</button>
+        </form>
+    </main>
+</body>
+
+</html>
+
+<script src="./js/function.js"></script>
+<script>
+    configureApp();
+    let displayName = document.getElementById("displayName")
+    let avatar = document.getElementById("avatar");
+    let showUsername = document.getElementById("showUsername")
+    let showEmail = document.getElementById("showEmail")
+    function authenticateUser() {
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/v8/firebase.User
+                var uid = user.uid;
+                // username.innerHTML = user.email;
+                if (user.photoURL == null) {
+                    avatar.src = "https://cdn-icons-png.flaticon.com/512/219/219983.png"
+                } else {
+                    avatar.src = user.photoURL;
+                }
+                user.displayName ? showUsername.innerHTML = `${user.displayName}` : showUsername.innerHTML = "Not Provided";
+                showEmail.innerHTML = `${user.email}`
+                // user.photoURL ? avatar.src = `${user.photoURL}` : avatar.src = "https://cdn-icons-png.flaticon.com/512/219/219983.png"
+
+                console.log(user);
+            } else {
+                // User is signed out
+                alert("There is no user logged in");
+                window.location.href = "login.html"
+            }
+        });
+    }
+    authenticateUser()
+
+    function updateUsername(ev) {
+        ev.preventDefault();
+        const user = firebase.auth().currentUser;
+
+        user.updateProfile({
+            displayName: displayName.value,
+        }).then(() => {
+            // Update successful
+            alert("Profile updated")
+            showUsername.innerHTML = displayName.value
+        }).catch((error) => {
+            // An error occurred
+            alert("Something went wrong");
+            console.log(error);
+        });
+    }
+</script>

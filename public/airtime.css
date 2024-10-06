@@ -1,0 +1,248 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: rgb(16, 54, 241);
+  
+  }
+  #upperpart{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: fit-content;
+    box-shadow: 0 0 10px rgba(248, 229, 229, 0.5);
+  }
+
+  #logo{
+    height: 120px; 
+    width: 110px;
+  }
+  #container {
+    margin-top: 300px;
+    max-width: 600px; 
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 5px;
+  }
+  #container, #upperpart:hover{
+    transition: box-shadow 0.3s ease-in-out;
+    box-shadow: 15px 15px 15px rgba(237, 236, 240, 0.521);
+  }
+
+
+  #phoneimg{
+    position: absolute;
+    right: 0;
+    margin-right: 100px;
+  }
+
+  table{
+    background-image: url(Background\ img.jpeg);
+    background-position: cover;
+    margin: 5px 0px 0px 30px;
+  }
+
+  #linenetwork{
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: white;
+    animation: moveImages 10s linear infinite;
+  }
+
+  @keyframes moveImages{
+    from{transform: translate(100%);
+    }
+    to{transform: translate(-30%)}
+  }
+
+
+  #rechargeBtnOpt{
+    display: block;
+    justify-content: left;
+  }
+  
+  h1 {
+    text-align: center;
+    color: rgba(172, 231, 8, 0.705);
+    margin-bottom: 20px;
+  }
+
+  h4{
+    opacity: 0;
+    animation: fadeInOut 5s infinite;
+    text-align: center;
+}
+
+@keyframes fadeInOut{
+    0%, 100%{
+        opacity: 0;
+        color: rgb(6, 119, 119);
+    }
+    50%{
+        opacity: 1;
+        color:  white;
+    }
+}
+  
+  p {
+    font-size: 16px; 
+    margin-bottom: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+    font-weight: 700;
+    color: rgb(253, 253, 253);
+    cursor: pointer;
+  }
+  
+  .balance { 
+    font-size: 24px; 
+    color: #3498db; 
+    margin-bottom: 20px;
+  }
+  
+  button { 
+    background-color: #4e5961; 
+    color: #fff; 
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    margin-right: 10px; 
+    
+  }
+  
+  button:hover { 
+    box-shadow: 0 0 10px rgba(230, 233, 236, 0.1);
+    background-color: #2980b9; 
+  }
+  
+  #rechargeopt{
+    /* display: flex;
+    justify-content: center; */
+   gap: 10px;
+    margin: 20px 0px 0px 30px;
+  }
+
+  #network, #amount{
+    height: 40px;
+    color: #2980b9;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  option{
+    color: #2980b9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  #phoneNumber{
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    margin: 0px 0px 0px 30px;
+
+  }
+
+  td{
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+
+  @media screen and (max-width:600px) {
+    body {
+      /* font-family: sans-serif; */
+      margin: 0;
+      /* padding: 20px; */
+      background-color: rgb(16, 54, 241);
+    }
+    #logo{
+      height: 80px; 
+      width: 70px;
+    }
+
+    #upperpart{
+      display: flex;
+      justify-content: center;
+      margin: auto;
+      width: 350px;
+      height: 150px;
+      /* background-color: rgb(218, 96, 14); */
+      box-shadow: 0 0 10px rgba(248, 229, 229, 0.5);
+    }
+
+    #welcome{
+      margin: 0;
+      padding: 0;
+      font-size: small;
+
+
+    }
+
+    #enjoy{
+      margin: 0;
+      padding: 0;
+      font-size: 8.5px;
+
+    }
+
+    #available{
+      font-size: 12px;
+    }
+
+    #container {
+      margin-top: 200px;
+      max-width: 300px; 
+      margin: 0 auto;
+      /* padding: 30px; */
+      border-radius: 5px;
+    }
+    #container, #upperpart:hover{
+      transition: box-shadow 0.3s ease-in-out;
+      box-shadow: 15px 15px 15px rgba(237, 236, 240, 0.521);
+    }
+  
+    #phoneimg{
+      display: none;
+    }
+
+    #img1, #img2, #img3, #img4{
+      width: 50px;
+      height: 60px;
+    }
+
+    #linenetwork{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+
+      background-color: white;
+      animation: moveImages 10s linear infinite;
+    }
+  
+    @keyframes moveImages{
+      from{transform: translate(100%);
+      }
+      to{transform: translate(-30%)}
+    }
+
+    #rechargeopt{
+     gap: 10px;
+      margin: 20px 0px 0px 12px;
+    }
+
+    #amount, #phoneNumber{
+      margin: 0px 0px 0px 12px;
+     
+    }
+
+    table{
+      margin: 5px 0px 0px 12px;
+      font-size: 10px;
+      border-radius: 5px;
+
+    }
+
+  }

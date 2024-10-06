@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="dashboard.css">
+  <title>Bank of America</title>
+  
+</head>
+
+<body>
+  <div>
+    <div>
+      <div> </div>
+    </div>
+ 
+  <div class="container">
+    
+    <h1>Welcome!</h1>
+    <p>Your account balance: <span id="balance">12,000 </span></p> <br><br><br>
+    <button onclick="withdraw()">Withdraw Money</button> <br><br>
+    <button onclick="loadAirtime()">Load Airtime</button> <br><br>
+    <button onclick="transfer()">Transfer Money</button> <br><br>
+  </div>
+
+</div>
+</body>
+</html>
+<script>
+    let balance = document.getElementById('balance');
+let currentBalance = 12000;
+
+function updateBalance() {
+  balance.innerHTML = `₦${currentBalance}`;
+}
+
+function withdraw() {
+  let amount = prompt("Enter amount to withdraw:");
+  if (isNaN(amount) || amount <= 0) {
+    alert("Invalid amount. Please enter a positive number.");
+    return;
+  }
+
+  if (amount > currentBalance) {
+    alert("Insufficient funds. Your current balance is ₦" + currentBalance);
+    return;
+  }
+
+  currentBalance -= amount;
+  updateBalance();
+  alert(`Successfully withdrawn ₦${amount}. Your new balance is ₦${currentBalance}`);
+}
+
+function loadAirtime() {
+  let number = prompt("Enter phone number to top up:");
+ let amount = prompt("Enter amount to load:");
+
+  if (isNaN(number) || isNaN(amount) || amount <= 0) {
+    alert("Invalid details. Please enter a valid phone number and positive amount.");
+    return;
+  }
+  currentBalance -= amount;
+  updateBalance();
+  alert(`Successfully loaded ₦${amount} airtime to ${number}.`);
+}
+
+function transfer() {
+ let recipient = prompt("Enter recipient's account number:");
+  let amount = prompt("Enter amount to transfer:");
+
+  if (isNaN(recipient) || isNaN(amount) || amount <= 0) {
+    alert("Invalid details. Please enter a valid account number and positive amount.");
+    return;
+  }
+
+  if (amount > currentBalance) {
+    alert("Insufficient funds. Your current balance is ₦" + currentBalance);
+    return;
+  }
+
+  
+  alert(`Successfully transferred ₦${amount} to account number ${recipient}.`);
+  currentBalance -= amount;
+  updateBalance();
+}
+
+updateBalance();
+
+</script>

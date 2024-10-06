@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" href="Mide_Bank_PLC_transparent-removebg-preview.png">
+    <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-storage-compat.js"></script>
+
+    <title>MB Plc Log In</title>
+</head>
+
+<body>
+    <main>
+
+        <div id="container">
+
+            <h1>Log In Your Account</h1>
+            
+            <!-- <form id="formsub">  -->
+
+                <label>Email:</label>
+                <input type="email"  id="email" placeholder="Insert your email"><br><br>
+
+                <label>Password:</label>
+                <span>
+                    <input type="password"  id="password" placeholder="Insert your password">
+                    <!-- <span id="eye" onclick="onTap()" style="cursor: pointer;">Show</span> -->
+                </span>
+                <br><br>
+
+                <button onclick="login()" >Log In</button>
+
+            <!-- </form> -->
+        <img src="Mide_Bank_PLC_transparent-removebg-preview.png">
+
+
+        </div>
+    </main>
+</body>
+</html>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDoI5jcWsQrDRhiNc2cR3unhRtaZBIIISQ",
+    authDomain: "bankapp-b784e.firebaseapp.com",
+    databaseURL: "https://bankapp-b784e-default-rtdb.firebaseio.com",
+    projectId: "bankapp-b784e",
+    storageBucket: "bankapp-b784e.appspot.com",
+    messagingSenderId: "538992171201",
+    appId: "1:538992171201:web:beb3376817b90410311c40"
+  };
+
+  const app = firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+
+  function login() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    auth.signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        alert("Login successful");
+        window.location.href = "newdashboard.html";
+      })
+      .catch((error) => {
+        console.error(error.message);
+        alert('Login failed: ' + error.message);
+      });
+  }
+
+  function forgot() {
+    const email = document.getElementById('email').value;
+
+    auth.sendPasswordResetEmail(email)
+      .then(() => {
+        alert('Password reset link sent to your email address');
+      })
+      .catch((error) => {
+        console.error(error.message);
+        alert('Error: ' + error.message);
+      });
+  }
+</script>

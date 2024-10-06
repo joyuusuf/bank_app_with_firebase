@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dash.css">
+    <link rel="icon" href="Mide_Bank_PLC_transparent-removebg-preview.png">
+    <title>MB PLC Dashboard</title>
+</head>
+<body>
+     <main>
+        <h4>Enjoy a glitch free banking network. Make transactions here! </h4>
+        <div id="container">
+            
+           
+            <div id="leftsidebar">
+                
+                    <h1 id="dashb">Dashboard</h1>
+                    <div id="underlogo">
+                        <form action="">
+                            <button id="homebtn"> Transfer</button>
+                            <!-- <button id="withdraw">Withdraw Money</button> -->
+                            <!-- <button id="depo">Deposit</button> -->
+                            <button id="load">Airtime</button>
+                            <button type="submit" id="signout">Sign Out </button>
+                        </form>
+                    </div>
+                        
+                    <img id="logo" src="Mide_Bank_PLC_transparent-removebg-preview.png">
+                    
+               
+
+            </div>
+
+            <div id="mainside">
+                <div id="mainleft">
+                <h1 id="greeting"></h1>
+                <h1 id="message"></h1>
+
+               
+              </div>
+
+            </div>
+
+            <div id="rightsidebar ">
+                <img id="chart" src="small-business-loans-as-share-of-assets-2018-2-365x365-removebg-preview.png" alt="">
+            </div>
+        </div>
+     </main>
+
+
+     
+</body>
+</html>
+
+<script>
+    let UserCreds = JSON.parse(sessionStorage.getItem("user-cred"))
+    let UserInfo = JSON.parse(sessionStorage.getItem("user-info"))
+    let message = document.getElementById('message')
+    let greeting = document.getElementById('greeting')
+    let signoutbtn = document.getElementById('signout')
+
+    let network =document.getElementById('network')
+    let amount = document.getElementById('amount')
+    let pin =document.getElementById('pin')
+    let display=document.getElementById('display')
+    let phoneNumber=document.getElementById('phoneNumber')
+    let array =[]
+    let count=1
+
+
+
+
+
+
+let signout =()=> {
+    sessionStorage.removeItem("user-creds ");
+    sessionStorage.removeItem("user-info");
+    window.location.href='login.html'
+}
+
+let CheckCred=() =>{
+    if (!sessionStorage.getItem("user-creds")) {
+        window.location.href='login.html'
+    } else{
+        message.innerHTML= `user with email "${UserCreds.email}" logged in`
+    greeting.innerHTML=`welcome ${UserInfo.firstname + " " + UserInfo.lastname}!`
+    }
+}
+
+window.addEventListener('load', CheckCred);
+signoutbtn.addEventListener('click', signout)
+</script>

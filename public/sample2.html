@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="signup.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-storage-compat.js"></script>
+  </head>
+  <body>
+    <div id="div1">
+      <img id="divis" src="../public/images/images/people-using-mobile-banking-app-online-money-transfer-net-banking-concept_330096-38.avif" alt="">
+    </div>
+    <div id="div2">
+      <div class="form form1" id="form1">
+        <p>Title</p>
+        <select name="" id="title">
+          <option value="">Title</option>
+          <option value="Miss">Miss</option>
+          <option value="Mrs">Mrs</option>
+          <option value="Mr">Mr</option>
+        </select>
+        <p>First Name</p>
+        <input id="first" type="text" />
+        <p>Last Name</p>
+        <input id="last" type="text" />
+        <p>Gender</p>
+        <div id="div3">
+          <input
+            id="male"
+            class="rad"
+            type="radio"
+            value="Male"
+            name="gender"
+          />
+          <label for="male">Male</label>
+
+          <input
+            id="female"
+            class="rad"
+            type="radio"
+            value="Female"
+            name="gender"
+          />
+          <label for="female">Female</label>
+
+          <input
+            id="undecided"
+            class="rad"
+            type="radio"
+            value="Undecided"
+            name="gender"
+          />
+          <label for="undecided">Undecided</label>
+        </div>
+
+        <p>Email address</p>
+        <input id="email" type="email" />
+        <p>Phone number</p>
+        <input id="phone" type="number" /><br />
+        <button onclick="next1()">Next</button>
+      </div>
+      <div class="form" id="form2">
+        <p>Date Of Birth</p>
+        <input id="date" type="date" />
+        <p>Nationality</p>
+        <input id="nationality" type="text" />
+        <p>State Of Origin</p>
+        <input id="origin" type="text" />
+        <p>Occupation</p>
+        <input id="occupation" type="text" />
+        <p>State Of Residence</p>
+        <input id="state" type="text" />
+        <p>LGA Of Residence</p>
+        <input id="local" type="text" /><br />
+
+        <button onclick="prev()">Prev</button>
+        <button onclick="next2()">Next</button>
+        <!-- <button onclick="submmit(event)">SUBMIT</button> -->
+      </div>
+      <div class="form" id="form3">
+        <p>Password</p>
+        <div id="pasw">
+          <input id="password" type="password" />
+         <div id="eye">
+          <span onclick="hide()" class="material-symbols-outlined" id="hideeye">
+            visibility_off
+          </span>
+          <span onclick="show()" class="material-symbols-outlined" id="showeye">
+            visibility
+         </div>
+          </span>
+        </div>
+        <p>Confirm Password</p>
+        <div id="pasw">
+          <input id="Confirm" type="password" />
+        <div id="eye">
+          <span
+          onclick="hideit()"
+          class="material-symbols-outlined"
+          id="hideeye1"
+        >
+          visibility_off
+        </span>
+        <span
+          onclick="showit()"
+          class="material-symbols-outlined"
+          id="showeye1"
+        >
+        visibility
+        </span>
+        </div>
+        </div>
+        <p>Set Transaction Pin</p>
+        <div id="pin">
+          <div id="pin1">
+            <input oninput="pinn()" class="pinn" id="p1" type="number" maxlength="1"/>
+            <input oninput="pinn()" class="pinn" id="p2" type="number" maxlength="1"/>
+            <input oninput="pinn()" class="pinn" id="p3" type="number" maxlength="1"/>
+            <input oninput="javascript: if (this.value.length > this.maxLength) this.value 
+            = this.value.slice(0, this.maxLength);"
+            type = "number"
+            oninput="pinn()" class="pinn" id="p4" type="number" maxlength="1" />
+          </div>
+        </div>
+
+        <div id="div6">
+          <input id="agree" class="rad" type="radio" />
+          <p id="agree">I agree to Indemnity and T&Cs</p>
+        </div>
+        <button onclick="prev1()">Prev</button>
+        <button onclick="submmit(event)">SUBMIT</button>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+   const firebaseConfig = {
+    apiKey: "AIzaSyDoI5jcWsQrDRhiNc2cR3unhRtaZBIIISQ",
+    authDomain: "bankapp-b784e.firebaseapp.com",
+    databaseURL: "https://bankapp-b784e-default-rtdb.firebaseio.com",
+    projectId: "bankapp-b784e",
+    storageBucket: "bankapp-b784e.appspot.com",
+    messagingSenderId: "538992171201",
+    appId: "1:538992171201:web:beb3376817b90410311c40"
+  };
+
+
+  
+  const app = firebase.initializeApp(firebaseConfig);
+</script>
+<!-- <script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyCBDcr1-UA5L3VqePCbSOCMoxp_Kv9jNxI",
+    authDomain: "keena-pay.firebaseapp.com",
+    projectId: "keena-pay",
+    storageBucket: "keena-pay.appspot.com",
+    messagingSenderId: "626250170104",
+    appId: "1:626250170104:web:dfb5248146be35d826c50d",
+  };
+
+  const app = firebase.initializeApp(firebaseConfig);
+</script> -->
+
+<script>
+  let title = document.getElementById("title");
+  let first = document.getElementById("first");
+  let last = document.getElementById("last");
+  let email = document.getElementById("email");
+  let phone = document.getElementById("phone");
+  let occupation = document.getElementById("occupation");
+  let state = document.getElementById("state");
+  let origin = document.getElementById("origin");
+  let local = document.getElementById("local");
+  let password = document.getElementById("password");
+  let Confirm = document.getElementById("Confirm");
+  let = document.getElementById("");
+  let agree = document.getElementById("agree");
+  let date = document.getElementById("date");
+  let nationality = document.getElementById("nationality");
+  let p1 = document.getElementById("p1");
+  let p2 = document.getElementById("p2");
+  let p3 = document.getElementById("p3");
+  let p4 = document.getElementById("p4");
+  let gender = document.getElementById("gender");
+  let = document.getElementById("");
+
+  function pinn() {
+    if (p1.value.length == 1) {
+      p2.focus();
+    }
+    if (p2.value.length == 1) {
+      p3.focus();
+    }
+    if (p3.value.length == 1) {
+      p4.focus();
+    }
+    if (p4.value.length == 1) {
+    }
+  }
+
+  let hideeye = document.getElementById("hideeye");
+  let showeye = document.getElementById("showeye");
+
+  function show() {
+    password.type = "text";
+    showeye.style.display = "none";
+    hideeye.style.display = "block";
+  }
+  function hide() {
+    password.type = "password";
+    hideeye.style.display = "none";
+    showeye.style.display = "block";
+  }
+
+  function showit() {
+    Confirm.type = "text";
+    showeye1.style.display = "none";
+    hideeye1.style.display = "block";
+  }
+  function hideit() {
+    Confirm.type = "password";
+    hideeye1.style.display = "none";
+    showeye1.style.display = "block";
+  }
+  let form1 = document.getElementById("form1");
+  let form2 = document.getElementById("form2");
+  let form3 = document.getElementById("form3");
+
+  function next1() {
+    form1.style.left = "-100%";
+    form2.style.left = "0%";
+    form3.style.left = "100%";
+  }
+  function next2() {
+    form1.style.left = "-200%";
+    form2.style.left = "-100%";
+    form3.style.left = "0%";
+  }
+
+  function prev() {
+    form1.style.left = "0%";
+    form2.style.left = "100%";
+    form3.style.left = "200%";
+  }
+
+  function prev1() {
+    form1.style.left = "-100%";
+    form2.style.left = "0%";
+    form3.style.left = "100%";
+  }
+
+  function submmit(ev) {
+    ev.preventDefault();
+    let genderselect = document.querySelector('input[name="gender"]:checked');
+    console.log(genderselect ? genderselect.value : "No gender selected");
+
+    if (
+      first.value == "" ||
+      last.value == "" ||
+      email.value == "" ||
+      phone.value == "" ||
+      occupation.value == "" ||
+      state.value == "" ||
+      local.value == "" ||
+      password.value == "" ||
+      Confirm.value == ""
+    ) {
+      alert("Kindly fill up all field");
+    } else if (password.value != Confirm.value) {
+      alert("Password does not match");
+    } else if (agree.checked == false) {
+      alert("Please agree to terms and conditions");
+    } else {
+      gen=''
+
+        for(let inde = 0; inde < 10; inde++) {
+            randomnumber = Math.floor(Math.random()*10);
+            console.log(randomnumber)
+            gen+=randomnumber 
+            
+            
+        }
+
+        console.log(gen);   
+      firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+        .then((userCredential) => {
+          var user = userCredential.user;
+            
+            const db = firebase.firestore();
+
+          // Add a new document in collection "cities"
+           db.collection("Profile").doc( user.email )
+            .set({
+              title: title.value,
+              dob: date.value,
+              email:email.value,
+              origin: origin.value,
+              firstname: first.value,
+              lastname: last.value,
+              pnonenumber: phone.value,
+              occupation: occupation.value,
+              state: state.value,
+              local: local.value,
+              agree: agree.value,
+              gender: genderselect.value,
+              balance: "5000",
+              bvn:'',
+              username:`${title.value} ${first.value} ${last.value}`,
+              useraddress:'',
+              profileimage:'',
+              pin: `${p1.value}${p2.value}${p3.value}${p4.value}`,
+              account_number:gen,
+            })
+            .then(() => {
+              alert("profile updated!");
+              alert("Registration succesful");
+              const user = firebase.auth().currentUser;
+
+// user.updateProfile({
+//   displayName: first.value + ' ' + last.value
+//   // photoURL: "https://example.com/jane-q-user/profile.jpg"
+// }).then(() => {
+//   // Update successful
+//   // ...
+// }).catch((error) => {
+//   // An error occurred
+//   // ...
+// });  
+          window.location.href = "login.html"; 
+          console.log(user);
+            })
+            .catch((error) => {
+              console.error("Error writing document: ", error);
+            });
+
+          // Signed in
+            
+          // ...
+        })
+        .catch((error) => {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.log(errorMessage);
+          // ..
+        });
+    }
+  }
+</script>

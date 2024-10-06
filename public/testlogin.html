@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        #background{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: tomato;
+            height: 100vh;
+        }
+        
+        h1{
+            color: rgb(192, 16, 192), 26, 122;
+            background-color: rgb(231, 25, 25);
+        }
+        #input, #inputpassword{
+            height: 60px;
+            width: 300px;
+        }
+        #login{
+            height: 50px;
+            width: 70px;
+            background-color: darkblue;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            margin-left: 120px;
+        }
+        </style>
+        <body>
+            <div id="background">
+                <div>
+                    <h1>Log In Here</h1>
+                    <input type="text" id="input" placeholder="username"> <br><br>
+                    <input type="password" id="inputpassword" placeholder="Enter your password here"> <br><br>
+                    <button id="login" onclick="login()">Log In </button>
+                </div>
+            </div>
+</body>
+</html>
+
+
+<script>
+    let username = document.getElementById('input')
+let password = document.getElementById('inputpassword')
+let savedinfo = JSON.parse(localStorage.getItem('all_data')) || [];
+let count = 0;
+
+let isFound;
+console.log(savedinfo);
+
+function checkLogin() {
+    if (!savedinfo || savedinfo.length === 0) {
+        return false; // No saved info, so login fails
+    }
+
+    for (let i = 0; i < savedinfo.length; i++){
+        if (savedinfo[i].username === username.value && savedinfo[i].password === password.value){
+            return true; // Login successful
+        }
+    }
+    return false; // Login failed
+}
+
+function login(){
+    if(checkLogin()){
+        localStorage.setItem("curUser", JSON.stringify(username.value)) 
+        window.location.href = 'dashboard.html'
+    } else {
+        alert("Invalid login credentials");
+    }
+}
+
+</script>

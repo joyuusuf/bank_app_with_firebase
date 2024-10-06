@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="airtime.css">
+    <link rel="icon" href="Mide_Bank_PLC_transparent-removebg-preview.png">
+    <title>MB PLC Airtime</title>
+</head>
+<body>
+    <div id="upperpart">
+        <img src="Mide_Bank_PLC_transparent-removebg-preview.png" id="logo">
+        <!-- <img src="atmsilver.jpg" alt=""> -->
+        <div id="container">
+        
+            <h1 id="welcome">Welcome!</h1>
+            <h4 id="enjoy">Enjoy a glitch free banking network. Recharge here! </h4>
+            <p id="available">Available  balance: <span id="balance"> 12000 </span></p> <br><br><br>
+            <!-- <button onclick="withdraw()">Withdraw Money</button> -->
+            <!-- <button onclick="transfer()">Transfer Money</button> -->
+        </div>
+        <img src="airtimephoto1-removebg-preview.png" id="phoneimg">
+    </div>
+   <div id="linenetwork" style="display: flex; gap: 20px; margin-top: 10px;">
+    <img src="images.png" height="80px" width="70px" id="img1">
+    <img src="Airtel 2 images.png" height="80px" width="70px" id="img2" >
+    <img src="Glo images.jpeg" height="80px" width="70px" id="img3">
+    <img src="9 mobile images.png" height="80px" width="70px" id="img4">
+   </div>
+      
+   <div id="rechargeBtnOpt">
+        <span id="rechargeopt">
+            <select name="" id="network">
+                <option>Select Your Preferred Network</option>
+                <option value="MTN">MTN</option>
+                <option value="Airtel">Airtel</option>
+                <option value="GLO">GLO</option>
+                <option value="9Mobile">9Mobile</option>
+            </select>
+
+            <select name="" id="amount">
+                <option id="airtimeamount">Select amount</option>
+                <option value="100">₦100</option>
+                <option value="200">₦200</option>
+                <option value="500">₦500</option>
+                <option value="1000">₦1000</option>
+                <option value="12000">₦12000</option>
+                <option value="20000">₦20000</option>
+            </select> <br> <br>
+        </span>
+
+
+            <input type="text" id="phoneNumber" placeholder="Your Phone Number Here">
+            <button onclick="loadAirtime()">Load Airtime</button>
+    </div>
+        
+
+        <table>
+            <thead>
+               <tr>
+                <td>S/N</td>
+                <td>Network</td>
+                <td>Amount</td>
+                <td>Transaction Id</td>
+                <td>Phone Number</td>
+               </tr>
+            </thead>
+            <tbody id="display"></tbody>
+         </table>
+     
+      
+</body>
+</html>
+
+
+<script>
+    let balance=document.getElementById('balance')
+    let currentBalance= 12000
+     let network =document.getElementById('network')
+     let amount = document.getElementById('amount')
+    let airtimeamount=document.getElementById('airtimeamount')
+    let pin =document.getElementById('pin')
+    let display=document.getElementById('display')
+    let phoneNumber=document.getElementById('phoneNumber')
+    let numbertogether = ''
+    let arraydata =[]
+    let count=1
+
+function updateBalance() {
+    balance.innerHTML=`${currentBalance}`
+    currentBalance -= airtimeamount;
+}
+
+    function displaydata() {
+        
+        display.innerHTML+=`
+        <tbody>
+            <tr>
+                <td>${count}</td>
+                <td>${network.value}</td>
+                <td>${amount.value}</td>
+                <td>${numbertogether}</td>
+                <td>${phoneNumber.value}</td>
+            </tr>
+        </tbody>
+        `
+        count++
+    }
+
+    function loadAirtime() {
+        // currentBalance = currentBalance - amount;
+        for (let index = 0; index < 16; index++) {
+            let generatednumber = Math.floor(Math.random()*10)
+            numbertogether = numbertogether + generatednumber
+        }
+        displaydata()
+        let data = {
+            network: network.value,
+            amount: amount.value,
+            pin: numbertogether,
+            phoneNumber:phoneNumber.value
+        }
+        arraydata.push(data)
+        console.log(arraydata);
+        numbertogether = ''
+
+        if (isNaN(phoneNumber.value) || phoneNumber.value <=12 ) {
+            alert('Input correct phone number')
+            return;
+        } 
+        else if(airtimeamount.value > currentBalance) {
+            alert("Insufficient funds. Your current balance is ₦" + currentBalance);
+    return;
+        } 
+  
+        updateBalance()
+        alert("transaction successfully")
+        // updateBalance()
+       
+
+
+    }
+
+
+
+
+//    
+// function buyairtime() {
+//   senditt2.innerHTML = 
+//       <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+//       <span class="visually-hidden" role="status">Loading...</span>
+//   ;
+//   let airtimeamt = document.getElementById("airtimeamt");
+
+//   firebase.auth().onAuthStateChanged((user) => {
+//     if (airtimeamt.value == "" || phonenum.value == "" || phonenum.value < 11) {
+//       alert("Kindly fill all input fields");
+//     } else {
+//       if (user) {
+//         const email = user.email;
+
+//         db.collection("Profile")
+//           .doc(email)
+//           .get()
+//           .then((doc) => {
+//             if (doc.exists) {
+//               const balance = doc.data().balance;
+//               const newBalance = balance - airtimeamt.value;
+//               console.log(doc.data().pin);
+//               // console.log("Current balance: ", balance);
+//               // console.log("New balance: ", newBalance);
+
+//               if (airtimeamt.value > balance) {
+//                 alert("Insufficient Balance");
+//               } else if (
+//                 ${p11.value}${p21.value}${p31.value}${p41.value} !==
+//                 doc.data().pin
+//               ) {
+//                 alert("Incorrect PIN");
+//                 p11.value = "";
+//                 p21.value = "";
+//                 p31.value = "";
+//                 p41.value = "";
+
+//                 // console.log(doc.data().pin);
+//               } else {
+//                 db.collection("Profile")
+//                   .doc(email)
+//                   .update({
+//                     balance: newBalance,
+//                   })
+
+//                   .then(() => {
+//                     console.log("Balance updated successfully!");
+//                     for (let inde = 0; inde < 10; inde++) {
+//                       randomnumber = Math.floor(Math.random() * 10);
+//                       console.log(randomnumber);
+//                       gen += randomnumber;
+//                     }
+
+//                     db.collection("transaction")
+//                       .add({
+//                         receiverEmail: "",
+//                         senderEmail: "",
+//                         type: "airtime",
+//                         amount: airtimeamt.value,
+//                         date: new Date(),
+//                         senderEmail: email,
+//                         senderName: ${doc.data().title} ${
+//                           doc.data().firstname
+//                         } ${doc.data().lastname},
+//                         senderOldBalance: balance,
+//                         senderNewBalance: newBalance,
+//                         transactionId: gen,
+//                         receipientNum: phonenum.value,
+//                         description: description.value,
+//                         network: inputre.value,
+//                       })
+//                       .then(() => {
+//                         thereceiver2.innerHTML = phonenum.value;
+//                         showamt2.innerHTML = airtimeamt.value;
+//                         type.innerHTML = "Airtime purchase of ";
+//                         yes.innerHTML = "successful";
+//                         p11.value = "";
+//                         p21.value = "";
+//                         p31.value = "";
+//                         p41.value = "";
+//                         pined.style.display = "none";
+//                         pins.style.display = "flex";
+//                         piner.style.display = "Flex";
+//                         const currentDate = new Date();
+//                         const day = currentDate
+//                           .getDate()
+//                           .toString()
+//                           .padStart(2, "0");
+//                         const month = (currentDate.getMonth() + 1)
+//                           .toString()
+//                           .padStart(2, "0");
+//                         const year = currentDate.getFullYear();
+//                         const hour = currentDate
+
+
+// .getHours()
+//                           .toString()
+//                           .padStart(2, "0");
+//                         const minute = currentDate
+//                           .getMinutes()
+//                           .toString()
+//                           .padStart(2, "0");
+//                         const second = currentDate
+//                           .getSeconds()
+//                           .toString()
+//                           .padStart(2, "0");
+//                         receipt2.innerHTML = 
+//                         <p class="treceipt" id="Dated">Transaction Date: <span>${day} ${month}, ${year}, ${hour}hr ${minute}min ${second}scs</span></p>
+//                         <p class="treceipt" id="Type">Transaction Type: <span>Airtime</span></p>
+//                         <p class="treceipt" id="Amount">Amount: <span>&#8358 ${airtimeamt.value}</span></p>
+//                         <p class="treceipt" id="Senderacc">Network: <span>${inputre.value}</span></p>
+//                         <p class="treceipt" id="Type">Transaction Id: <span>${gen}</span></p>
+
+                        
+//                         ;
+//                         // inputre.value =""
+//                         console.log("Transaction added successfully!");
+
+//                         airtimeamt.value = "";
+//                         phonenum.value = "";
+//                       })
+//                       .catch((error) => {
+//                         console.error("Error adding transaction: ", error);
+//                       });
+//                   })
+//                   .catch((error) => {
+//                     console.error("Error updating balance: ", error);
+//                   });
+//               }
+//             } else {
+//               console.log("No such document!");
+//             }
+//           })
+//           .catch((error) => {
+//             console.log("Error getting document: ", error);
+//           });
+//       } else {
+//       }
+//     }
+//   });
+// }
+</script>

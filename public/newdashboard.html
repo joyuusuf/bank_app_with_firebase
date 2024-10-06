@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="newdashboard.css">
+    <link rel="icon" href="Mide_Bank_PLC_transparent-removebg-preview.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-storage-compat.js"></script>
+    <title>MB PLC Dashboard</title>
+</head>
+
+<body>
+    <main>
+        <!-- NAVBAR  -->
+        <nav class="navbar bg-body-tertiary shadow-lg fixed-top" id="NavBar">
+            <form class="container-fluid justify-content-between">
+                <h1>MB PLC</h1>
+                <img src="Mide Bank PLC_transparent.png" style="width: 70px; height: 70px;">
+                <button class="btn btn-outline-success me-2 border-0" type="button"
+                    onclick="dashboardbtn()">Dashboard</button>
+                <button class="btn btn-outline-success me-2 border-0" type="button"
+                    onclick="transfernavbtn()">Transfer</button>
+                <button class="btn btn-outline-success me-2 border-0" type="button"
+                    onclick="airtimenav()">Airtime</button>
+                <button class="btn btn-outline-success me-2 border-0" type="button"
+                    onclick="withdrawnav()">Withdrawal</button>
+                <button class="btn btn-outline-success me-2 border-0" type="button"
+                    onclick="recieptnav()">Receipt</button>
+                <button class="btn btn-danger me-2 border-0" type="button" id="signnav" 
+                onclick="signOut()">Sign Out</button>
+                <p>En <i class="fa-solid fa-angle-down"></i></p>
+                <div><i class="fa-regular fa-bell"></i></div>
+            </form>
+        </nav>
+        <!-- NAVBAR STOPS -->
+        <!-- DASHBOARD STARTS DASHBOARD STARTS DASHBOARD STARTS DASHBOARD STARTS -->
+
+        <section id="dashboardpage">
+
+
+            <!-- SECTION1 STARTS -->
+            <section id="section1">
+                <div id="upperleft">
+                    <label for="file-upload" class="custom-label">
+                        <img src="#" id="preview" class="preview-image" alt="Selected image" style="display: none;">
+                        <span id="pic-text">Upload your Picture</span>
+                        <input type="file" id="file-upload" accept="image/*" style="display: none;">
+                    </label>
+                </div>
+                
+            
+
+                <div id="upperright1">
+                    <span id="upperright2">
+                        <h3 id="profilecom" style="margin-left: 10px;"> Profile Completeness
+                            <span id="percent">
+                                100%
+                            </span>
+                        </h3>
+                    </span>
+                    <span id="icons">
+                        <i class="fa-solid fa-mobile-screen" id="screen"></i>
+
+                        <i class="fa-solid fa-envelope" id="envelope"></i>
+
+                        <i class="fa-solid fa-credit-card" id="cred"></i>
+
+                        <i class="fa-solid fa-landmark" id="land"></i>
+                    </span>
+                    <span id="texticons">
+                        <span id="mob">mobile</span>
+                        <span id="emailadd">Email Added</span>
+                        <span id="addcard">Add card</span>
+                        <span id="addbank">Add Bank Account</span>
+                    </span>
+
+                </div>
+            </section>
+            <!-- SECTION1 STOPS -->
+
+            <!-- SECTION2 STARTS -->
+            <section id="section2">
+                <div id="balance">
+
+                    <span>
+                        <i class="fa-solid fa-wallet" id="wallet"></i>
+                    </span>
+
+                    <div id="amount">
+                        5000.00
+                    </div>
+
+                    <p id="avail" style="opacity: 0.5; margin-top: 10px;">
+                        Available Balance
+                    </p>
+                    <p id="balancetext">
+                        Withdraw Deposit
+                    </p>
+                </div>
+
+                <div id="section2right">
+                    <h1 id="activity">Recent Activity</h1>
+                    <span id="recent-activity-container"></span> 
+                </div>
+            </section>
+            <!-- SECTION2 STOPS -->
+
+            <!-- SECTION 3 STARTS -->
+            <section id="section3">
+                <div id="leftsection3">
+                    <i class="fa-regular fa-comments" id="comment"></i>
+                    <h3 id="help">Need Help?</h3>
+                    <p id="section3quest">Have questions or concerns as regards your account? </p>
+                    <p id="ourexpert">Our experts are here to help</p>
+                    <button id="questbtn">Chat With Us</button>
+                </div>
+
+            </section>
+
+            <!-- SECTION 3 STOPS -->
+
+        </section>
+        <!-- DASHBOARD STOPS DASHBOARD STOPS DASHBOARD STOPS DASHBOARD STOPS  -->
+
+        <!-- TRANSFER STARTS -->
+        <main id="transfermain">
+            <!-- <i id="entertransfer">Enter</i> -->
+            <h1 id="accounttrans"> Transfer</h1>
+            <div id="alltransfer">
+                <div id="transleft">
+
+
+                </div>
+
+                <div id="transferform">
+                    <label id="recipe">Recipient:</label> <br>
+                    <input type="text" id="recipeinput" placeholder="Recipient's Account Name"> <br> <br>
+
+
+                    <label id="recipac">Account of Recipient:</label> <br>
+                    <input type="number" id="recipnumber" placeholder="Recipient's Account Number"> <br> <br>
+
+                    <label id="recipamlabel">Amount of Recipient:</label> <br>
+                    <input type="text" id="recipamount" placeholder="Amount to be sent"> <br> <br>
+
+                    <label id="recipref">Reference or Message To Recipient:</label><br>
+                    <input type="text" id="reciprefmes" placeholder="Message To Recipient"> <br> <br>
+
+                    <input id="transferpword" placeholder="Password"> <br><br>
+                        <div id="loader"></div>
+                    <button id="transferbtn">Submit Transaction</button>
+
+
+
+
+                </div>
+
+                <div id="righttransfer">
+
+                </div>
+            </div>
+
+        </main>
+        <!-- TRANSFER STOPS -->
+
+        <!-- AIRTIME STARTS -->
+        <main id="airtimesection">
+            <!-- Airtime leftsidebar Start-->
+            <div id="payleft">
+                <h1 id="payh1">PAY WITH</h1>
+                <p id="paybank"><i class="fa-solid fa-landmark" id="land"></i> Bank</p>
+                <p id="paycard"><i class="fa-solid fa-credit-card" id="cred"></i> Card</p>
+                <p id="payvisa"><i class="fa-solid fa-qrcode"></i> Visa QR</p>
+                <p style="text-align: center;">Balance:</p>
+                <span style="text-align: center;" id="amountairtime">5000</span>
+            </div>
+            <!-- Airtime leftsidebar Stop -->
+
+            <!-- Airtime Main Side Starts -->
+            <div id="airtimemain">
+                <h1 id="airhead">Airtime Recharge</h1>
+                <i class="fa-regular fa-rectangle-list" id="list"></i>
+                <span id="entertrans"><i>Enter</i>
+                    <h2 id="entertrans1">Transaction</h2>
+                </span>
+
+                <div id="airtimeform">
+                    <label id="lbl">Phone Number:</label> <br>
+                    <input type="number" id="airtimeinput" placeholder=" Phone Number Here!"> <br> <br>
+
+                    <label for="network" id="lbl">Network:</label> <br>
+                    <select id="selectairtime" required>
+                        <option value="" style="opacity: 0.3;">Select your Network</option>
+                        <option value="MTN">MTN</option>
+                        <option value="Airtel">Airtel</option>
+                        <option value="Glo">Glo</option>
+                        <option value="9Mobile">9Mobile</option>
+                    </select> <br> <br>
+
+
+                    <label id="lbl">Amount:</label> <br>
+                    <input type="number" id="inputamountairt" placeholder="Amount to recharge"> <br> <br>
+
+                    <label id="lbl">PIN:</label> <br>
+                    <input type="password" id="pinairtime" placeholder="Your transfer pin here"> <br><br>
+
+                    <button id="airtimebtn" onclick="airtimebtn()">Buy Airtime</button>
+                    <!-- Receipt -->
+                    <div id="receipt2"></div>
+
+                    <!-- Last Transactions -->
+                    <div id="lasttransactions"></div>
+                </div>
+            </div>
+            <!-- Airtime Main Side Stops -->
+        </main>
+        <!-- AIRTIME STOPS -->
+
+        <!-- signOut Loader -->
+        <div id="signOutLoader" class="loader"></div>
+        <!-- signOut Loader` -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- FOOTER 4 STARTS -->
+
+        <footer class="shadow-lg">
+
+            <div id="firstfoot">
+                <a href="#" id="about"><b>About Us</b></a>
+                <a href="#" id="support"><b>Support</b></a>
+                <a href="#" id="hel"><b>Help</b></a>
+                <a href="#" id="career"><b>Careers</b></a>
+                <a href="#" id="affiliate"><b>Affiliate</b></a>
+                <a href="#" id="fees"><b>Fees</b></a>
+
+                <div id="smlogos">
+                    <img src="fb-removebg-preview.png" alt="" id="fb">
+                    <img src="twee-removebg-preview.png" alt="" id="tweet">
+                    <img src="ggg-removebg-preview.png" alt="" id="goog">
+                    <img src="youtube-removebg-preview.png" alt="" id="yout">
+                </div>
+            </div>
+
+            <div id="secondfoot">
+                Copyright © 2024 MB PLC. All Rights Reserved.
+
+                <div id="lastfooter">
+                    <a href="#" id="lasfoot">Security</a>
+                    <a href="#" id="lasfoot">Terms</a>
+                    <a href="#" id="lasfoot">Privacy</a>
+                </div>
+            </div>
+ 
+        </footer>
+        <!-- FOOTER STOPS -->
+
+
+        <!-- <div><i class="fa-regular fa-user"></i></div> -->
+
+        <div></div>
+        <div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+</body>
+
+</html>
+
+<script src="newdashboard.js"></script>

@@ -1,0 +1,150 @@
+#allpage{
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+  #coverpage {
+    width: 400px; 
+    height: 500px; 
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    animation: moveLeftRight 4s infinite; 
+  }
+
+  @keyframes moveLeftRight {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(50px); /* Adjust the distance to move */
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .container{
+    max-width: 400px;
+    margin: 50px 0 0 50px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  }
+
+  #logo{
+    width: 90px;
+    height: 100px;
+  }
+  
+  h1{
+    text-align: center;
+    color: rgb(0, 109, 128);
+    margin-bottom: 20px;
+  }
+  
+  label{
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  #gender, #title{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 15px;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="date"]{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 15px;
+  }
+  
+  button{
+    background-color: #3f3cee;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  button:hover{
+      background-color: green;
+      color: rgb(240, 143, 64);
+  }
+
+  #bottomline{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 10px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    #allpage{
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+    #coverpage {
+      width: 200px;
+      height: 300px;
+    }  
+
+    #coverpage{
+        display: none;
+      }
+    
+      .container{
+        /* height: 400px; */
+        max-width: 300px;
+        margin: auto;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+      }
+
+      h1{
+        text-align: center;
+        color: rgb(13, 60, 192);
+        margin-bottom: 20px;
+        font-size: 20px;
+        font-family: monospace;
+      }
+      
+      label{
+        display: block;
+        margin-bottom: 5px;
+        font-family: cursive;
+        color: blueviolet;
+      }
+
+      input[type="text"],
+      input[type="password"],
+      input[type="email"]{
+        width: 90%;
+        padding: 10px;
+        border: 1px solid #2806eb;
+        border-radius: 3px;
+        margin-bottom: 15px;
+      }
+
+  }
+  
